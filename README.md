@@ -29,7 +29,7 @@ This works well for the common case of `null` and `undefined` values, but there 
 ```javascript
 const headerText = response.settings?.headerText || 'Hello, world!'; // Potentially unintended. '' evaluates to false, result: 'Hello, world!'
 const animationDuration = response.settings?.animationDuration || 300; // Potentially unintended. 0 evaluates to false, result: 300
-const showSplashScreen = response.settings?.showSplashScreen || true; // Potentially unintended. False evaluates to valse, result: true
+const showSplashScreen = response.settings?.showSplashScreen || true; // Potentially unintended. False evaluates to false, result: true
 ```
 
 The nullary coalescing operator is intended to handle these cases better and serves as an equality check against nullary values (`null` or `undefined`). 
