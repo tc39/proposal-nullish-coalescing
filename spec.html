@@ -1,0 +1,44 @@
+<!doctype html>
+<meta charset="utf8">
+<pre class=metadata>
+title: Nullary coalescing operator
+stage: 0
+contributors: Daniel Ehrenberg
+</pre>
+
+<emu-intro id=sec-intro>
+  <h1>Introduction</h1>
+  <p>This document specifies the nullary coalescing operator `??`. See <a href="https://github.com/gisenberg/proposal-nullary-coalescing">the explainer</a> for an introduction.</p>
+  <p>The main design decisions made in this specification are:
+    <ol>
+      <li>The right argument of `??` is evaluated only if needed ("short circuiting").</li>
+      <li>`??` has the same precedence as `||`.</li>
+      <li>The right argument is selected if the left argument is `null` or `undefined`.</li>
+    </ol>
+  </p>
+</emu-intro>
+
+<emu-clause id=sec-null-coalescing-syntax>
+  <h1>Syntax</h1>
+
+  <emu-grammar>
+      LogicalORExpression[In, Yield, Await] :
+        LogicalANDExpression[?In, ?Yield, ?Await]
+        LogicalORExpression[?In, ?Yield, ?Await] `||` LogicalANDExpression[?In, ?Yield, ?Await]
+        <ins>LogicalORExpression[?In, ?Yield, ?Await] `??` LogicalANDExpression[?In, ?Yield, ?Await]</ins>
+  </emu-grammar>
+</emu-clause>
+
+<emu-clause id="sec-null-coalescing-evaluation">
+  <h1>Runtime Semantics: Evaluation</h1>
+
+  <emu-grammar>LogicalORExpression : LogicalORExpression `??` LogicalANDExpression</emu-grammar>
+  <emu-alg>
+    1. Let _lref_ be the result of evaluating |LogicalORExpression|.
+    1. Let _lval_ be ? GetValue(_lref_).
+    1. If _lval_ is *undefined* or *null*,
+      1. Let _rref_ be the result of evaluating |LogicalANDExpression|.
+      1. Return ? GetValue(_rref_).
+    1. Otherwise, return _lval_.
+  </emu-alg>
+</emu-clause>
