@@ -61,6 +61,9 @@ While this proposal specifically calls out `null` and `undefined` values, the in
 ## Prior Art
 * [Null coalescing operator](https://en.wikipedia.org/wiki/Null_coalescing_operator)
 
+## Specification
+* https://littledan.github.io/proposal-nullary-coalescing/
+
 ## TODO
 Per the [TC39 process document](https://tc39.github.io/process-document/), here is a high level list of work that needs to happen across the various proposal stages.
 
@@ -68,7 +71,7 @@ Per the [TC39 process document](https://tc39.github.io/process-document/), here 
 * [x] Prose outlining the problem or need and general shape of the solution (stage-1)
 * [x] Illustrative examples of usage (stage-1)
 * [x] High-level API (stage-1)
-* [ ] Initial spec text (stage-2)
+* [x] Initial spec text (stage-2)
 * [ ] Babel plugin (stage-2)
 * [ ] Finalize and reviewer signoff for spec text (stage-3)
 * [ ] Test262 acceptance tests (stage-4)
