@@ -1,8 +1,8 @@
-# Nullary Coalescing for JavaScript
+# Null Coalescing for JavaScript
 
 ## Status
 Current Stage:
-* Stage 0
+* Stage 1
 
 ## Authors
 * Gabriel Isenberg ([github](https://github.com/gisenberg), [twitter](https://twitter.com/the_gisenberg))
@@ -79,7 +79,7 @@ Per the [TC39 process document](https://tc39.github.io/process-document/), here 
 * [ ] Reviewer signoff (stage-4)
 
 ## References
-* [TC39 Slide Deck: Nullary Coalescing Operator](https://docs.google.com/presentation/d/1m5nxTH8ifcmOlyaTmTuMAa1bawiGUyKJzQGlw-EVSKM/edit?usp=sharing)
+* [TC39 Slide Deck: Null Coalescing Operator](https://docs.google.com/presentation/d/1m5nxTH8ifcmOlyaTmTuMAa1bawiGUyKJzQGlw-EVSKM/edit?usp=sharing)
 
 ## Prior discussion
 * https://stackoverflow.com/questions/476436/is-there-a-null-coalescing-operator-in-javascript
