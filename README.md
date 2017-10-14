@@ -1,4 +1,4 @@
-# Null Coalescing for JavaScript
+# Nullish Coalescing for JavaScript
 
 ## Status
 Current Stage:
