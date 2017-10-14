@@ -6,6 +6,7 @@ Current Stage:
 
 ## Authors
 * Gabriel Isenberg ([github](https://github.com/gisenberg), [twitter](https://twitter.com/the_gisenberg))
+* Daniel Ehrenberg ([github](https://github.com/littledan), [twitter](https://twitter.com/littledan))
 
 ## Overview and motivation
 When performing optional property access in a nested structure in conjunction with the [optional chaining operator](https://github.com/TC39/proposal-optional-chaining), it is often desired to provide a default value if the result of that property access is `null` or `undefined`. At present, a typical way to express this intent in JavaScript is by using the `||` operator.

@@ -1,14 +1,14 @@
 <!doctype html>
 <meta charset="utf8">
 <pre class=metadata>
-title: Nullary coalescing operator
-stage: 0
+title: Nullish coalescing operator
+stage: 1
 contributors: Daniel Ehrenberg
 </pre>
 
 <emu-intro id=sec-intro>
   <h1>Introduction</h1>
-  <p>This document specifies the nullary coalescing operator `??`. See <a href="https://github.com/gisenberg/proposal-nullary-coalescing">the explainer</a> for an introduction.</p>
+  <p>This document specifies the nullish coalescing operator `??`. See <a href="https://github.com/gisenberg/proposal-nullish-coalescing">the explainer</a> for an introduction.</p>
   <p>The main design decisions made in this specification are:
     <ol>
       <li>The right argument of `??` is evaluated only if needed ("short circuiting").</li>
@@ -18,7 +18,7 @@ contributors: Daniel Ehrenberg
   </p>
 </emu-intro>
 
-<emu-clause id=sec-null-coalescing-syntax>
+<emu-clause id=sec-nullish-coalescing-syntax>
   <h1>Syntax</h1>
 
   <emu-grammar>
@@ -29,7 +29,7 @@ contributors: Daniel Ehrenberg
   </emu-grammar>
 </emu-clause>
 
-<emu-clause id="sec-null-coalescing-evaluation">
+<emu-clause id="sec-nullish-coalescing-evaluation">
   <h1>Runtime Semantics: Evaluation</h1>
 
   <emu-grammar>LogicalORExpression : LogicalORExpression `??` LogicalANDExpression</emu-grammar>
