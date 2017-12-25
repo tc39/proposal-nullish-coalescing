@@ -1,0 +1,16 @@
+{
+  "private": true,
+  "name": "proposal-nullish-coalescing",
+  "version": "1.0.0",
+  "description": "ECMAScript Nullish Coalescing proposal",
+  "repository": "tc39/proposal-nullish-coalescing",
+  "author": "ECMA TC39",
+  "license": "SEE LICENSE IN https://tc39.github.io/ecma262/#sec-copyright-and-software-license",
+  "homepage": "https://tc39.github.io/proposal-nullish-coalescing/",
+  "dependencies": {
+    "ecmarkup": "^3.12.0"
+  },
+  "devDependencies": {
+    "@alrra/travis-scripts": "^3.0.0"
+  }
+}
