@@ -63,7 +63,7 @@ While this proposal specifically calls out `null` and `undefined` values, the in
 * [Null coalescing operator](https://en.wikipedia.org/wiki/Null_coalescing_operator)
 
 ## Specification
-* https://littledan.github.io/proposal-nullary-coalescing/
+* https://tc39.github.io/proposal-nullish-coalescing/
 
 ## TODO
 Per the [TC39 process document](https://tc39.github.io/process-document/), here is a high level list of work that needs to happen across the various proposal stages.
