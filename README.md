@@ -54,6 +54,7 @@ const nullValue = response.settings?.nullValue ?? 'some other default'; // resul
 const headerText = response.settings?.headerText ?? 'Hello, world!'; // result: ''
 const animationDuration = response.settings?.animationDuration ?? 300; // result: 0
 const showSplashScreen = response.settings?.showSplashScreen ?? true; // result: false
+const el = document.getElementById(...) ?? defaultElement; // result: defaultElement if element not found
 ```
 
 ## Notes
