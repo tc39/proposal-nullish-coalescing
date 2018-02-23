@@ -36,7 +36,7 @@ const showSplashScreen = response.settings?.showSplashScreen || true; // Potenti
 The nullary coalescing operator is intended to handle these cases better and serves as an equality check against nullary values (`null` or `undefined`). 
 
 ## Syntax
-*Base case*. If the expression at the left-hand side of the `??` operator evaluates to undefined or null, its right-hand side is returned.
+*Base case*. If the expression at the left-hand side of the `??:` operator evaluates to undefined or null, its right-hand side is returned.
 
 ```javascript
 const response = {
@@ -49,12 +49,16 @@ const response = {
   }
 };
 
-const undefinedValue = response.settings?.undefinedValue ?? 'some other default'; // result: 'some other default'
-const nullValue = response.settings?.nullValue ?? 'some other default'; // result: 'some other default'
-const headerText = response.settings?.headerText ?? 'Hello, world!'; // result: ''
-const animationDuration = response.settings?.animationDuration ?? 300; // result: 0
-const showSplashScreen = response.settings?.showSplashScreen ?? true; // result: false
+const undefinedValue = response.settings?.undefinedValue ??: 'some other default'; // result: 'some other default'
+const nullValue = response.settings?.nullValue ??: 'some other default'; // result: 'some other default'
+const headerText = response.settings?.headerText ??: 'Hello, world!'; // result: ''
+const animationDuration = response.settings?.animationDuration ??: 300; // result: 0
+const showSplashScreen = response.settings?.showSplashScreen ??: true; // result: false
 ```
+
+### Why the `??:` token?
+
+The initial proposal here used the token `??`, which is similar to what several other programming languages do for the same purpose. This proposal use `??:` instead, so that similar operators can be used by the [optional chaining proposal](https://github.com/TC39/proposal-optional-chaining) (e.g., `??[`). See [the past discussion](https://github.com/tc39/proposal-optional-chaining/issues/34) on this topic for more details.
 
 ## Notes
 While this proposal specifically calls out `null` and `undefined` values, the intent is to provide a complementary operator to the [optional chaining operator](https://github.com/TC39/proposal-optional-chaining). This proposal will update to match the sementics of that operator.

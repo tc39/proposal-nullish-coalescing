@@ -8,11 +8,11 @@ contributors: Daniel Ehrenberg
 
 <emu-intro id=sec-intro>
   <h1>Introduction</h1>
-  <p>This document specifies the nullish coalescing operator `??`. See <a href="https://github.com/gisenberg/proposal-nullish-coalescing">the explainer</a> for an introduction.</p>
+  <p>This document specifies the nullish coalescing operator `??:`. See <a href="https://github.com/gisenberg/proposal-nullish-coalescing">the explainer</a> for an introduction.</p>
   <p>The main design decisions made in this specification are:
     <ol>
-      <li>The right argument of `??` is evaluated only if needed ("short circuiting").</li>
-      <li>`??` has the same precedence as `||`.</li>
+      <li>The right argument of `??:` is evaluated only if needed ("short circuiting").</li>
+      <li>`??:` has the same precedence as `||`.</li>
       <li>The right argument is selected if the left argument is `null` or `undefined`.</li>
     </ol>
   </p>
@@ -25,14 +25,14 @@ contributors: Daniel Ehrenberg
       LogicalORExpression[In, Yield, Await] :
         LogicalANDExpression[?In, ?Yield, ?Await]
         LogicalORExpression[?In, ?Yield, ?Await] `||` LogicalANDExpression[?In, ?Yield, ?Await]
-        <ins>LogicalORExpression[?In, ?Yield, ?Await] `??` LogicalANDExpression[?In, ?Yield, ?Await]</ins>
+        <ins>LogicalORExpression[?In, ?Yield, ?Await] `??:` LogicalANDExpression[?In, ?Yield, ?Await]</ins>
   </emu-grammar>
 </emu-clause>
 
 <emu-clause id="sec-nullish-coalescing-evaluation">
   <h1>Runtime Semantics: Evaluation</h1>
 
-  <emu-grammar>LogicalORExpression : LogicalORExpression `??` LogicalANDExpression</emu-grammar>
+  <emu-grammar>LogicalORExpression : LogicalORExpression `??:` LogicalANDExpression</emu-grammar>
   <emu-alg>
     1. Let _lref_ be the result of evaluating |LogicalORExpression|.
     1. Let _lval_ be ? GetValue(_lref_).
