@@ -9,7 +9,7 @@ Current Stage:
 * Daniel Ehrenberg ([github](https://github.com/littledan), [twitter](https://twitter.com/littledan))
 
 ## Overview and motivation
-When performing optional property access in a nested structure in conjunction with the [optional chaining operator](https://github.com/TC39/proposal-optional-chaining), it is often desired to provide a default value if the result of that property access is `null` or `undefined`. At present, a typical way to express this intent in JavaScript is by using the `||` operator.
+When performing property accesses, it is often desired to provide a default value if the result of that property access is `null` or `undefined`. At present, a typical way to express this intent in JavaScript is by using the `||` operator.
 
 ```javascript
 const response = {
@@ -22,15 +22,16 @@ const response = {
   }
 };
 
-const undefinedValue = response.settings?.undefinedValue || 'some other default'; // result: 'some other default'
-const nullValue = response.settings?.nullValue || 'some other default'; // result: 'some other default'
+const undefinedValue = response.settings.undefinedValue || 'some other default'; // result: 'some other default'
+const nullValue = response.settings.nullValue || 'some other default'; // result: 'some other default'
 ```
 
 This works well for the common case of `null` and `undefined` values, but there are a number of falsy values that might produce surprising results:
+
 ```javascript
-const headerText = response.settings?.headerText || 'Hello, world!'; // Potentially unintended. '' evaluates to false, result: 'Hello, world!'
-const animationDuration = response.settings?.animationDuration || 300; // Potentially unintended. 0 evaluates to false, result: 300
-const showSplashScreen = response.settings?.showSplashScreen || true; // Potentially unintended. False evaluates to false, result: true
+const headerText = response.settings.headerText || 'Hello, world!'; // Potentially unintended. '' is falsy, result: 'Hello, world!'
+const animationDuration = response.settings.animationDuration || 300; // Potentially unintended. 0 is falsy, result: 300
+const showSplashScreen = response.settings.showSplashScreen || true; // Potentially unintended. false is falsy, result: true
 ```
 
 The nullary coalescing operator is intended to handle these cases better and serves as an equality check against nullary values (`null` or `undefined`). 
@@ -49,11 +50,11 @@ const response = {
   }
 };
 
-const undefinedValue = response.settings?.undefinedValue ?? 'some other default'; // result: 'some other default'
-const nullValue = response.settings?.nullValue ?? 'some other default'; // result: 'some other default'
-const headerText = response.settings?.headerText ?? 'Hello, world!'; // result: ''
-const animationDuration = response.settings?.animationDuration ?? 300; // result: 0
-const showSplashScreen = response.settings?.showSplashScreen ?? true; // result: false
+const undefinedValue = response.settings.undefinedValue ?? 'some other default'; // result: 'some other default'
+const nullValue = response.settings.nullValue ?? 'some other default'; // result: 'some other default'
+const headerText = response.settings.headerText ?? 'Hello, world!'; // result: ''
+const animationDuration = response.settings.animationDuration ?? 300; // result: 0
+const showSplashScreen = response.settings.showSplashScreen ?? true; // result: false
 ```
 
 ## Notes
