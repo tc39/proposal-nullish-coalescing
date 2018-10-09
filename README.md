@@ -73,11 +73,11 @@ Per the [TC39 process document](https://tc39.github.io/process-document/), here 
 * [x] Illustrative examples of usage (stage-1)
 * [x] High-level API (stage-1)
 * [x] Initial spec text (stage-2)
-* [ ] Babel plugin (stage-2)
 * [ ] Finalize and reviewer signoff for spec text (stage-3)
 * [ ] Test262 acceptance tests (stage-4)
 * [ ] tc39/ecma262 pull request with integrated spec text (stage-4)
 * [ ] Reviewer signoff (stage-4)
+* [ ] Two complete implementations (stage-4)
 
 ## References
 * [TC39 Slide Deck: Null Coalescing Operator](https://docs.google.com/presentation/d/1m5nxTH8ifcmOlyaTmTuMAa1bawiGUyKJzQGlw-EVSKM/edit?usp=sharing)
