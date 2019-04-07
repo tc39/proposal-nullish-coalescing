@@ -57,7 +57,7 @@ const showSplashScreen = response.settings?.showSplashScreen ?? true; // result:
 ```
 
 ## Notes
-While this proposal specifically calls out `null` and `undefined` values, the intent is to provide a complementary operator to the [optional chaining operator](https://github.com/TC39/proposal-optional-chaining). This proposal will update to match the sementics of that operator.
+While this proposal specifically calls out `null` and `undefined` values, the intent is to provide a complementary operator to the [optional chaining operator](https://github.com/TC39/proposal-optional-chaining). This proposal will update to match the semantics of that operator.
 
 ## Prior Art
 * [Null coalescing operator](https://en.wikipedia.org/wiki/Null_coalescing_operator)
