@@ -31,7 +31,7 @@ contributors: Daniel Ehrenberg
       <ins>
       NullishExpression[In, Yield, Await, Nullish] :
         LogicalORExpression[?In, ?Yield, ?Await, ?Nullish]
-        LogicalORExpression[?In, ?Yield, ?Await, +Nullish] `??` NullishExpression[?In, ?Yield, ?Await, +Nullish]
+        NullishExpression[?In, ?Yield, ?Await, +Nullish] `??` LogicalORExpression[?In, ?Yield, ?Await, +Nullish]
       </ins>
 
       LogicalORExpression[In, Yield, Await, <ins>Nullish</ins>] :
