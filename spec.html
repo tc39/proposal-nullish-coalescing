@@ -1,9 +1,9 @@
 <!doctype html>
 <meta charset="utf8">
 <pre class=metadata>
-title: Nullish coalescing operator
+title: Nullish Coalescing Operator
 stage: 2
-contributors: Daniel Ehrenberg
+contributors: Daniel Ehrenberg, Daniel Rosenwasser
 </pre>
 
 <emu-intro id=sec-intro>
@@ -12,7 +12,7 @@ contributors: Daniel Ehrenberg
   <p>The main design decisions made in this specification are:
     <ol>
       <li>The right argument of `??` is evaluated only if needed ("short circuiting").</li>
-      <li>`??` has the same precedence as `||`.</li>
+      <li>`??` has lower precedence than `||`.</li>
       <li>The right argument is selected if the left argument is `null` or `undefined`.</li>
     </ol>
   </p>
