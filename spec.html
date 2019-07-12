@@ -22,10 +22,25 @@ contributors: Daniel Ehrenberg
   <h1>Syntax</h1>
 
   <emu-grammar>
+      ConditionalExpression[In, Yield, Await] :
+        <del>LogicalORExpression[?In, ?Yield, ?Await]</del>
+        <del>LogicalORExpression[?In, ?Yield, ?Await] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[?In, ?Yield, ?Await]</del>
+        <ins>NullishExpression[?In, ?Yield, ?Await]</ins>
+        <ins>NullishExpression[?In, ?Yield, ?Await] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[+In, ?Yield, ?Await]</ins>
+
+      <ins>
+      NullishExpression[In, Yield, Await] :
+        LogicalORExpression[?In, ?Yield, ?Await]
+        LogicalORExpression[?In, ?Yield, ?Await] `??` NullishExpression[?In, ?Yield, ?Await]
+      </ins>
+
       LogicalORExpression[In, Yield, Await] :
         LogicalANDExpression[?In, ?Yield, ?Await]
         LogicalORExpression[?In, ?Yield, ?Await] `||` LogicalANDExpression[?In, ?Yield, ?Await]
-        <ins>LogicalORExpression[?In, ?Yield, ?Await] `??` LogicalANDExpression[?In, ?Yield, ?Await]</ins>
+
+      LogicalANDExpression[In, Yield, Await] :
+        BitwiseORExpression[?In, ?Yield, ?Await]
+        LogicalANDExpression[?In, ?Yield, ?Await] `&&` BitwiseORExpression[?In, ?Yield, ?Await]
   </emu-grammar>
 </emu-clause>
 
