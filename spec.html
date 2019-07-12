@@ -22,10 +22,27 @@ contributors: Daniel Ehrenberg
   <h1>Syntax</h1>
 
   <emu-grammar>
-      LogicalORExpression[In, Yield, Await] :
-        LogicalANDExpression[?In, ?Yield, ?Await]
-        LogicalORExpression[?In, ?Yield, ?Await] `||` LogicalANDExpression[?In, ?Yield, ?Await]
-        <ins>LogicalORExpression[?In, ?Yield, ?Await] `??` LogicalANDExpression[?In, ?Yield, ?Await]</ins>
+      ConditionalExpression[In, Yield, Await] :
+        <del>LogicalORExpression[?In, ?Yield, ?Await]</del>
+        <del>LogicalORExpression[?In, ?Yield, ?Await] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[?In, ?Yield, ?Await]</del>
+        <ins>NullishExpression[?In, ?Yield, ?Await, ~Nullish]</ins>
+        <ins>NullishExpression[?In, ?Yield, ?Await, ~Nullish] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[+In, ?Yield, ?Await]</ins>
+
+      <ins>
+      NullishExpression[In, Yield, Await, Nullish] :
+        LogicalORExpression[?In, ?Yield, ?Await, ?Nullish]
+        LogicalORExpression[?In, ?Yield, ?Await, +Nullish] `??` NullishExpression[?In, ?Yield, ?Await, +Nullish]
+      </ins>
+
+      LogicalORExpression[In, Yield, Await, <ins>Nullish</ins>] :
+        LogicalANDExpression[?In, ?Yield, ?Await, <ins>?Nullish</ins>]
+        <del>LogicalORExpression[?In, ?Yield, ?Await] `||` LogicalANDExpression[?In, ?Yield, ?Await]</del>
+        <ins>[~Nullish] LogicalORExpression[?In, ?Yield, ?Await, ~Nullish] `||` LogicalANDExpression[?In, ?Yield, ?Await, ~Nullish]</ins>
+
+      LogicalANDExpression[In, Yield, Await, <ins>Nullish</ins>] :
+        BitwiseORExpression[?In, ?Yield, ?Await]
+        <del>LogicalANDExpression[?In, ?Yield, ?Await] `&&` BitwiseORExpression[?In, ?Yield, ?Await]</del>
+        <ins>[~Nullish] LogicalANDExpression[?In, ?Yield, ?Await] `&&` BitwiseORExpression[?In, ?Yield, ?Await]</ins>
   </emu-grammar>
 </emu-clause>
 
