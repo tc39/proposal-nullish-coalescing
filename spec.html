@@ -147,10 +147,6 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
         1. If _has_ is *true*, return *true*.
         1. Return HasCallInTailPosition of the second |AssignmentExpression| with argument _call_.
       </emu-alg>
-      <emu-grammar>
-        <del>ConditionalExpression : LogicalORExpression `?` AssignmentExpression `:` AssignmentExpression</del>
-        <ins>ConditionalExpression : NullishExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
-      </emu-grammar>
       <emu-grammar>LogicalANDExpression : LogicalANDExpression `&amp;&amp;` BitwiseORExpression</emu-grammar>
       <emu-alg>
         1. Return HasCallInTailPosition of |BitwiseORExpression| with argument _call_.
