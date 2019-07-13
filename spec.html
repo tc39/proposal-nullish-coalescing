@@ -64,14 +64,12 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
 
     <emu-grammar><ins>NullishExpression : NullishExpression `??` LogicalORExpression</ins></emu-grammar>
     <emu-alg>
-    <ins>
-      1. Let _lref_ be the result of evaluating |LogicalORExpression|.
-      1. Let _lval_ be ? GetValue(_lref_).
-      1. If _lval_ is *undefined* or *null*,
-        1. Let _rref_ be the result of evaluating |LogicalANDExpression|.
-        1. Return ? GetValue(_rref_).
-      1. Otherwise, return _lval_.
-    </ins>
+      1. <ins>Let _lref_ be the result of evaluating |NullishExpression|.</ins>
+      1. <ins>Let _lval_ be ? GetValue(_lref_).</ins>
+      1. <ins>If _lval_ is *undefined* or *null*,</ins>
+        1. <ins>Let _rref_ be the result of evaluating |LogicalORExpression|.</ins>
+        1. <ins>Return ? GetValue(_rref_).</ins>
+      1. <ins>Otherwise, return _lval_.</ins>
     </emu-alg>
   </emu-clause>
 </emu-clause>
