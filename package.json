@@ -3,6 +3,11 @@
   "name": "proposal-nullish-coalescing",
   "version": "1.0.0",
   "description": "ECMAScript Nullish Coalescing proposal",
+  "scripts": {
+    "clean": "rm -rf out",
+    "build": "npm run clean && mkdir out && ecmarkup --verbose spec.html out/index.html --css out/ecmarkup.css --js out/ecmarkup.js",
+    "watch": "npm run clean && mkdir out && ecmarkup --watch --verbose spec.html out/index.html --css out/ecmarkup.css --js out/ecmarkup.js"
+  },
   "repository": "tc39/proposal-nullish-coalescing",
   "author": "ECMA TC39",
   "license": "SEE LICENSE IN https://tc39.github.io/ecma262/#sec-copyright-and-software-license",
