@@ -5,8 +5,10 @@
   "description": "ECMAScript Nullish Coalescing proposal",
   "scripts": {
     "clean": "rm -rf out",
-    "build": "npm run clean && mkdir out && ecmarkup --verbose spec.html out/index.html --css out/ecmarkup.css --js out/ecmarkup.js",
-    "watch": "npm run clean && mkdir out && ecmarkup --watch --verbose spec.html out/index.html --css out/ecmarkup.css --js out/ecmarkup.js"
+    "postclean": "mkdir out",
+    "prebuild": "npm run clean",
+    "build": "ecmarkup --verbose spec.html out/index.html --css out/ecmarkup.css --js out/ecmarkup.js",
+    "watch": "npm run build -- --watch",
   },
   "repository": "tc39/proposal-nullish-coalescing",
   "author": "ECMA TC39",
