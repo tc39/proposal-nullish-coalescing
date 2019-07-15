@@ -90,10 +90,14 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
   <h2>Syntax</h2>
   <emu-grammar type="definition">
       ConditionalExpression[In, Yield, Await] :
-        <del>LogicalORExpression[?In, ?Yield, ?Await]</del>
-        <del>LogicalORExpression[?In, ?Yield, ?Await] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[?In, ?Yield, ?Await]</del>
-        <ins>NullishExpression[?In, ?Yield, ?Await, ~Nullish]</ins>
-        <ins>NullishExpression[?In, ?Yield, ?Await, ~Nullish] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[+In, ?Yield, ?Await]</ins>
+        <del>
+        LogicalORExpression[?In, ?Yield, ?Await]
+        LogicalORExpression[?In, ?Yield, ?Await] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[?In, ?Yield, ?Await]
+        </del>
+        <ins>
+        NullishExpression[?In, ?Yield, ?Await, ~Nullish]
+        NullishExpression[?In, ?Yield, ?Await, ~Nullish] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[+In, ?Yield, ?Await]
+        </ins>
   </emu-grammar>
 
   <emu-clause id="sec-conditional-operator-static-semantics-isfunctiondefinition">
