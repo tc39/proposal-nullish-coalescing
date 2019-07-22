@@ -37,7 +37,7 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
     LogicalANDExpression[In, Yield, Await, <ins>Coalesced</ins>] :
       BitwiseORExpression[?In, ?Yield, ?Await]
       <del>LogicalANDExpression[?In, ?Yield, ?Await] `&amp;&amp;` BitwiseORExpression[?In, ?Yield, ?Await]</del>
-      <ins>[~Coalesced] LogicalANDExpression[?In, ?Yield, ?Await] `&amp;&amp;` BitwiseORExpression[?In, ?Yield, ?Await]</ins>
+      <ins>[~Coalesced] LogicalANDExpression[?In, ?Yield, ?Await, ~Coalesced] `&amp;&amp;` BitwiseORExpression[?In, ?Yield, ?Await]</ins>
   </emu-grammar>
 
   <emu-clause id="sec-binary-logical-operators-static-semantics-isfunctiondefinition">
