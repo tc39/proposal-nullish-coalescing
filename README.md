@@ -8,6 +8,7 @@ Current Stage:
 
 * Gabriel Isenberg ([github](https://github.com/gisenberg), [twitter](https://twitter.com/the_gisenberg))
 * Daniel Ehrenberg ([github](https://github.com/littledan), [twitter](https://twitter.com/littledan))
+* Daniel Rosenwasser ([github](https://github.com/DanielRosenwasser), [twitter](https://twitter.com/drosenwasser))
 
 ## Overview and motivation
 When performing property accesses, it is often desired to provide a default value if the result of that property access is `null` or `undefined`. At present, a typical way to express this intent in JavaScript is by using the `||` operator.
