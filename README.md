@@ -2,9 +2,10 @@
 
 ## Status
 Current Stage:
-* Stage 2
+* Stage 3
 
 ## Authors
+
 * Gabriel Isenberg ([github](https://github.com/gisenberg), [twitter](https://twitter.com/the_gisenberg))
 * Daniel Ehrenberg ([github](https://github.com/littledan), [twitter](https://twitter.com/littledan))
 
