@@ -76,7 +76,7 @@ Per the [TC39 process document](https://tc39.github.io/process-document/), here 
 * [x] Illustrative examples of usage (stage-1)
 * [x] High-level API (stage-1)
 * [x] Initial spec text (stage-2)
-* [ ] Finalize and reviewer signoff for spec text (stage-3)
+* [x] Finalize and reviewer signoff for spec text (stage-3)
 * [ ] Test262 acceptance tests (stage-4)
 * [ ] tc39/ecma262 pull request with integrated spec text (stage-4)
 * [ ] Reviewer signoff (stage-4)
