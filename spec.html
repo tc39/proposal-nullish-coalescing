@@ -24,20 +24,17 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
   <h2>Syntax</h2>
   <emu-grammar type="definition">
     <ins>
-    CoalesceExpression[In, Yield, Await, Coalesced] :
-      LogicalORExpression[?In, ?Yield, ?Await, ?Coalesced]
-      CoalesceExpression[?In, ?Yield, ?Await, +Coalesced] `??` LogicalORExpression[?In, ?Yield, ?Await, +Coalesced]
-    </ins>
+    LogicalExpression[In, Yield, Await] :
+      LogicalORExpression[?In, ?Yield, ?Await]
+      CoalesceExpression[?In, ?Yield, ?Await]
 
-    LogicalORExpression[In, Yield, Await, <ins>Coalesced</ins>] :
-      LogicalANDExpression[?In, ?Yield, ?Await, <ins>?Coalesced</ins>]
-      <del>LogicalORExpression[?In, ?Yield, ?Await] `||` LogicalANDExpression[?In, ?Yield, ?Await]</del>
-      <ins>[~Coalesced] LogicalORExpression[?In, ?Yield, ?Await, ~Coalesced] `||` LogicalANDExpression[?In, ?Yield, ?Await, ~Coalesced]</ins>
+    CoalesceExpression[In, Yield, Await] :
+      CoalesceExpressionHead[?In, ?Yield, ?Await] `??` BitwiseORExpression[?In, ?Yield, ?Await]
 
-    LogicalANDExpression[In, Yield, Await, <ins>Coalesced</ins>] :
+    CoalesceExpressionHead[In, Yield, Await] :
+      CoalesceExpression[?In, ?Yield, ?Await]
       BitwiseORExpression[?In, ?Yield, ?Await]
-      <del>LogicalANDExpression[?In, ?Yield, ?Await] `&amp;&amp;` BitwiseORExpression[?In, ?Yield, ?Await]</del>
-      <ins>[~Coalesced] LogicalANDExpression[?In, ?Yield, ?Await, ~Coalesced] `&amp;&amp;` BitwiseORExpression[?In, ?Yield, ?Await]</ins>
+    </ins>
   </emu-grammar>
 
   <emu-clause id="sec-binary-logical-operators-static-semantics-isfunctiondefinition">
@@ -48,7 +45,7 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
 
       LogicalORExpression : LogicalORExpression `||` LogicalANDExpression
 
-      <ins>CoalesceExpression : CoalesceExpression `??` LogicalORExpression</ins>
+      <ins>CoalesceExpression : CoalesceExpressionHead `??` BitwiseORExpression</ins>
     </emu-grammar>
     <emu-alg>
       1. Return *false*.
@@ -63,7 +60,7 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
 
       LogicalORExpression : LogicalORExpression `||` LogicalANDExpression
 
-      <ins>CoalesceExpression : CoalesceExpression `??` LogicalORExpression</ins>
+      <ins>CoalesceExpression : CoalesceExpressionHead `??` BitwiseORExpression</ins>
     </emu-grammar>
     <emu-alg>
       1. Return ~invalid~.
@@ -73,12 +70,12 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
   <emu-clause id="sec-binary-logical-operators-runtime-semantics-evaluation">
     <h1>Runtime Semantics: Evaluation</h1>
 
-    <emu-grammar><ins>CoalesceExpression : CoalesceExpression `??` LogicalORExpression</ins></emu-grammar>
+    <emu-grammar><ins>CoalesceExpression : CoalesceExpressionHead `??` BitwiseORExpression</ins></emu-grammar>
     <emu-alg>
-      1. <ins>Let _lref_ be the result of evaluating |CoalesceExpression|.</ins>
+      1. <ins>Let _lref_ be the result of evaluating |CoalesceExpressionHead|.</ins>
       1. <ins>Let _lval_ be ? GetValue(_lref_).</ins>
       1. <ins>If _lval_ is *undefined* or *null*,</ins>
-        1. <ins>Let _rref_ be the result of evaluating |LogicalORExpression|.</ins>
+        1. <ins>Let _rref_ be the result of evaluating |BitwiseORExpression|.</ins>
         1. <ins>Return ? GetValue(_rref_).</ins>
       1. <ins>Otherwise, return _lval_.</ins>
     </emu-alg>
@@ -95,8 +92,8 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
         LogicalORExpression[?In, ?Yield, ?Await] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[?In, ?Yield, ?Await]
         </del>
         <ins>
-        CoalesceExpression[?In, ?Yield, ?Await, ~Coalesced]
-        CoalesceExpression[?In, ?Yield, ?Await, ~Coalesced] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[+In, ?Yield, ?Await]
+        LogicalExpression[?In, ?Yield, ?Await]
+        LogicalExpression[?In, ?Yield, ?Await] `?` AssignmentExpression[+In, ?Yield, ?Await] `:` AssignmentExpression[+In, ?Yield, ?Await]
         </ins>
   </emu-grammar>
 
@@ -105,7 +102,7 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
     <emu-see-also-para op="IsFunctionDefinition"></emu-see-also-para>
     <emu-grammar>
       <del>ConditionalExpression : LogicalORExpression `?` AssignmentExpression `:` AssignmentExpression</del>
-      <ins>ConditionalExpression : CoalesceExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
+      <ins>ConditionalExpression : LogicalExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
     </emu-grammar>
     <emu-alg>
       1. Return *false*.
@@ -117,7 +114,7 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
     <emu-see-also-para op="AssignmentTargetType"></emu-see-also-para>
     <emu-grammar>
       <del>ConditionalExpression : LogicalORExpression `?` AssignmentExpression `:` AssignmentExpression</del>
-      <ins>ConditionalExpression : CoalesceExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
+      <ins>ConditionalExpression : LogicalExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
     </emu-grammar>
     <emu-alg>
       1. Return ~invalid~.
@@ -128,11 +125,11 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
     <h1>Runtime Semantics: Evaluation</h1>
     <emu-grammar>
       <del>ConditionalExpression : LogicalORExpression `?` AssignmentExpression `:` AssignmentExpression</del>
-      <ins>ConditionalExpression : CoalesceExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
+      <ins>ConditionalExpression : LogicalExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
     </emu-grammar>
     <emu-alg>
       1. <del>Let _lref_ be the result of evaluating |LogicalORExpression|.</del>
-      1. <ins>Let _lref_ be the result of evaluating |CoalesceExpression|.</ins>
+      1. <ins>Let _lref_ be the result of evaluating |LogicalExpression|.</ins>
       1. Let _lval_ be ToBoolean(? GetValue(_lref_)).
       1. If _lval_ is *true*, then
         1. Let _trueRef_ be the result of evaluating the first |AssignmentExpression|.
@@ -155,7 +152,7 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
       <h1>Expression Rules</h1>
       <emu-grammar>
         <del>ConditionalExpression : LogicalORExpression `?` AssignmentExpression `:` AssignmentExpression</del>
-        <ins>ConditionalExpression : CoalesceExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
+        <ins>ConditionalExpression : LogicalExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
       </emu-grammar>
       <emu-alg>
         1. Let _has_ be HasCallInTailPosition of the first |AssignmentExpression| with argument _call_.
@@ -172,12 +169,12 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
       </emu-alg>
       <emu-grammar>
       <ins>
-        CoalesceExpression : CoalesceExpression `??` LogicalORExpression
+        CoalesceExpression : CoalesceExpressionHead `??` BitwiseORExpression
       </ins>
       </emu-grammar>
       <emu-alg>
       <ins>
-        1. Return HasCallInTailPosition of |LogicalORExpression| with argument _call_.
+        1. Return HasCallInTailPosition of |BitwiseORExpression| with argument _call_.
       </ins>
       </emu-alg>
     </emu-clause>
