@@ -52,9 +52,9 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
     </emu-alg>
   </emu-clause>
 
-  <emu-clause oldids="sec-binary-logical-operators-static-semantics-isvalidsimpleassignmenttarget" id="sec-binary-logical-operators-static-semantics-assignmenttargettype">
-    <h1>Static Semantics: AssignmentTargetType</h1>
-    <emu-see-also-para op="AssignmentTargetType"></emu-see-also-para>
+  <emu-clause oldids="sec-binary-logical-operators-static-semantics-isvalidsimpleassignmenttarget,sec-semantics-static-semantics-assignmenttargettype" id="sec-binary-logical-operators-static-semantics-issimpleassignmenttarget">
+    <h1>Static Semantics: IsSimpleAssignmentTarget</h1>
+    <emu-see-also-para op="IsSimpleAssignmentTarget"></emu-see-also-para>
     <emu-grammar>
       LogicalANDExpression : LogicalANDExpression `&amp;&amp;` BitwiseORExpression
 
@@ -63,7 +63,7 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
       <ins>CoalesceExpression : CoalesceExpressionHead `??` BitwiseORExpression</ins>
     </emu-grammar>
     <emu-alg>
-      1. Return ~invalid~.
+      1. Return *false*.
     </emu-alg>
   </emu-clause>
 
@@ -109,15 +109,15 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
     </emu-alg>
   </emu-clause>
 
-  <emu-clause oldids="sec-conditional-operator-static-semantics-isvalidsimpleassignmenttarget" id="sec-conditional-operator-static-semantics-assignmenttargettype">
-    <h1>Static Semantics: AssignmentTargetType</h1>
-    <emu-see-also-para op="AssignmentTargetType"></emu-see-also-para>
+  <emu-clause oldids="sec-conditional-operator-static-semantics-isvalidsimpleassignmenttarget,sec-semantics-static-semantics-assignmenttargettype" id="sec-conditional-operator-static-semantics-issimpleassignmenttarget">
+    <h1>Static Semantics: IsSimpleAssignmentTarget</h1>
+    <emu-see-also-para op="IsSimpleAssignmentTarget"></emu-see-also-para>
     <emu-grammar>
       <del>ConditionalExpression : LogicalORExpression `?` AssignmentExpression `:` AssignmentExpression</del>
       <ins>ConditionalExpression : LogicalExpression `?` AssignmentExpression `:` AssignmentExpression</ins>
     </emu-grammar>
     <emu-alg>
-      1. Return ~invalid~.
+      1. Return *false*.
     </emu-alg>
   </emu-clause>
 
