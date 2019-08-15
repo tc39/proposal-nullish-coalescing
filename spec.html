@@ -12,7 +12,6 @@ contributors: Daniel Ehrenberg, Daniel Rosenwasser
   <p>The main design decisions made in this specification are:
     <ol>
       <li>The right argument of `??` is evaluated only if needed ("short circuiting").</li>
-      <li>`??` has lower precedence than `||`.</li>
       <li>`??` cannot immediately contain, or be contained within, an `&amp;&amp;` or `||` operation.</li>
       <li>The right argument is selected if the left argument is `null` or `undefined`.</li>
     </ol>
