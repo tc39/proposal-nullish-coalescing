@@ -1,4 +1,4 @@
-# Nullish Coalescing for JavaScript
+# Nullish Condescending for JavaScript
 
 ## Status
 Current Stage:
