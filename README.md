@@ -68,20 +68,6 @@ While this proposal specifically calls out `null` and `undefined` values, the in
 ## Specification
 * https://tc39.github.io/proposal-nullish-coalescing/
 
-## TODO
-Per the [TC39 process document](https://tc39.github.io/process-document/), here is a high level list of work that needs to happen across the various proposal stages.
-
-* [x] Identify champion to advance addition (stage-1)
-* [x] Prose outlining the problem or need and general shape of the solution (stage-1)
-* [x] Illustrative examples of usage (stage-1)
-* [x] High-level API (stage-1)
-* [x] Initial spec text (stage-2)
-* [x] Finalize and reviewer signoff for spec text (stage-3)
-* [x] [Test262 acceptance tests](https://github.com/tc39/proposal-nullish-coalescing) (stage-4)
-* [x] [tc39/ecma262 pull request with integrated spec text](https://github.com/tc39/ecma262/pull/1644) (stage-4)
-* [ ] Reviewer signoff (stage-4)
-* [x] Two complete implementations (stage-4)
-
 ## References
 * [TC39 Slide Deck: Null Coalescing Operator](https://docs.google.com/presentation/d/1m5nxTH8ifcmOlyaTmTuMAa1bawiGUyKJzQGlw-EVSKM/edit?usp=sharing)
 
