@@ -39,7 +39,7 @@ const showSplashScreen = response.settings.showSplashScreen || true; // Potentia
 The nullary coalescing operator is intended to handle these cases better and serves as an equality check against nullary values (`null` or `undefined`). 
 
 ## Syntax
-*Base case*. If the expression at the left-hand side of the `??` operator evaluates to undefined or null, its right-hand side is returned.
+*Base case*. If the expression at the left-hand side of the `??` operator evaluates to `undefined` or `null`, its right-hand side is returned.
 
 ```javascript
 const response = {
